@@ -1,51 +1,63 @@
-// Initialize Animations
+// 1. Scroll Reveal Animation
+// This makes sections fade and slide up when they enter the screen
+const observerOptions = {
+    threshold: 0.15 // Section starts appearing when 15% is visible
+};
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
         }
     });
-}, { threshold: 0.1 });
+}, observerOptions);
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// Select all sections with the 'reveal' class and start observing them
+document.querySelectorAll('.reveal').forEach(section => {
+    observer.observe(section);
+});
 
-// Hamburger Menu Logic
+// 2. Mobile Navigation Toggle
 const menuBtn = document.getElementById('mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 
-menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    menuBtn.classList.toggle('open');
-});
+if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuBtn.classList.toggle('open');
+    });
+}
 
-// Auto-close menu on link click and update active state
+// 3. Smooth Active Link Highlighting
+// Updates the navigation menu to show which section you are currently viewing
 window.addEventListener('scroll', () => {
-    let current = '';
-    document.querySelectorAll('section').forEach(section => {
+    let current = "";
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 150) {
+        if (pageYOffset >= sectionTop - 100) {
             current = section.getAttribute('id');
         }
     });
 
-    document.querySelectorAll('.nav-links a').forEach(a => {
-        a.classList.remove('active');
-        if (a.getAttribute('href').includes(current)) {
-            a.classList.add('active');
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href').includes(current)) {
+            item.classList.add('active');
         }
     });
 });
 
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        menuBtn.classList.remove('open');
-    });
-});
+// 4. Contact Form Logic
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-// Handle Form Submission
-document.getElementById('contactForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert("Message Sent! Thank you for reaching out, Karun will get back to you soon.");
-    e.target.reset();
-});
+        // You can later connect this to an email service like EmailJS
+        alert("Thanks for reaching out, Karun! This is a demo; your message was captured locally.");
+        contactForm.reset();
+    });
+}

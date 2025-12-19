@@ -1,4 +1,4 @@
-/* CSS STYLES */
+
         :root {
             --bg-color: #0f172a;
             --second-bg-color: #1e293b;
@@ -22,19 +22,21 @@
             overflow-x: hidden;
         }
 
-        /* Navbar */
+        /* --- Navbar Styles --- */
         nav {
             position: fixed;
-            top: 0; width: 100%;
+            top: 0; width: 100%; height: 75px;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 10%;
-            background: rgba(15, 23, 42, 0.9);
+            padding: 0 10%;
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            /* Glowing line separation */
+            border-bottom: 2px solid var(--main-color);
+            box-shadow: 0 4px 15px rgba(34, 211, 238, 0.1);
         }
 
-        .logo { font-size: 24px; font-weight: 800; color: #fff; }
+        .logo { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
         .logo span { color: var(--main-color); }
 
         .nav-links { list-style: none; display: flex; gap: 30px; }
@@ -44,22 +46,38 @@
         }
         .nav-links a:hover, .nav-links a.active { color: var(--main-color); }
 
-        /* Sections */
-        section { min-height: 100vh; padding: 100px 10% 20px; }
+        /* The "=" Hamburger Button (Hidden on Desktop) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            z-index: 1001;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 28px; height: 3px;
+            background: var(--main-color);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        /* --- Hero Section --- */
+        section { min-height: 100vh; padding: 120px 10% 60px; }
         .section-title { font-size: 2.5rem; margin-bottom: 50px; text-align: center; }
         .section-title span { color: var(--main-color); }
-        /* Hero Section */
+
         .hero { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
         .hero-content { flex: 1; }
         .hero-content h3 { font-size: 1.5rem; color: var(--main-color); }
         .hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin: 10px 0; }
 
-        /* Typewriter Effect */
         .typewriter {
             color: var(--main-color);
             border-right: 3px solid var(--main-color);
             white-space: nowrap;
             overflow: hidden;
+            display: inline-block;
             animation: typing 3s steps(30) infinite alternate, blink 0.5s step-end infinite;
         }
 
@@ -68,7 +86,6 @@
 
         .hero-content p { color: var(--gray-text); margin: 20px 0 30px; max-width: 500px; }
 
-        /* Profile Image with Glow */
         .hero-img { flex: 1; display: flex; justify-content: flex-end; }
         .img-box {
             position: relative;
@@ -84,42 +101,54 @@
 
         /* Buttons */
         .cta-btns { display: flex; gap: 15px; }
-        .btn {
-            padding: 12px 30px; border-radius: 50px; text-decoration: none;
-            font-weight: 600; transition: 0.3s;
-        }
+        .btn { padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; }
         .btn.primary { background: var(--main-color); color: #0f172a; }
         .btn.secondary { border: 2px solid var(--main-color); color: var(--main-color); }
-        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
 
-        /* Grid Layouts */
+        /* Grid & Cards */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card {
-            background: var(--second-bg-color);
-            padding: 30px; border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.4s ease;
-        }
+        .card { background: var(--second-bg-color); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s ease; }
         .card:hover { border-color: var(--main-color); transform: translateY(-10px); }
 
-        /* Skills Progress Bar */
+        /* Skills */
         .skill-item { margin-bottom: 20px; }
         .skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; }
         .progress-line { height: 8px; width: 100%; background: #334155; border-radius: 10px; position: relative; }
-        .progress-line span {
-            height: 100%; background: var(--main-color);
-            position: absolute; border-radius: 10px;
-            box-shadow: 0 0 10px var(--main-color);
-        }
+        .progress-line span { height: 100%; background: var(--main-color); position: absolute; border-radius: 10px; box-shadow: 0 0 10px var(--main-color); }
 
-        /* Scroll Animation Class */
+        /* Animations */
         .reveal { opacity: 0; transform: translateY(50px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Responsive */
+        /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
+            .menu-toggle { display: flex; } /* Show "=" button */
+
+            .nav-links {
+                position: fixed;
+                top: -100vh; /* Hidden above screen */
+                left: 0;
+                width: 100%;
+                background: var(--bg-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                transition: 0.4s ease-in-out;
+                border-bottom: 2px solid var(--main-color);
+                z-index: 999;
+            }
+
+            .nav-links.active { top: 75px; } /* Slide down below nav */
+
             .hero { flex-direction: column-reverse; text-align: center; }
             .hero-img { justify-content: center; }
-            .img-box { width: 250px; height: 250px; }
-            .nav-links { display: none; }
+            .img-box { width: 250px; height: 250px; margin: 0 auto; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .cta-btns { justify-content: center; }
         }
+
+        /* Animation for "=" to "X" */
+        .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .menu-toggle.open span:nth-child(2) { opacity: 0; }
+        .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+

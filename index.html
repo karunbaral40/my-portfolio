@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karun Baral | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -31,7 +31,7 @@
         <div class="hero-content">
             <h3>BCA Student</h3>
             <h1>Karun Baral</h1>
-            <div style="display: inline-block;">
+            <div class="typewriter-container">
                 <h2 class="typewriter">Aspiring Full Stack Developer</h2>
             </div>
             <p>Started my BCA journey in 2025 at Everest College. I specialize in building logical Java applications and modern web interfaces.</p>
@@ -49,7 +49,7 @@
 
     <section id="about" class="reveal">
         <h2 class="section-title">About <span>Me</span></h2>
-        <div class="card" style="max-width: 800px; margin: 0 auto;">
+        <div class="card about-card">
             <p>I am currently pursuing my Bachelor of Computer Applications (BCA) at Everest College, affiliated with Tribhuvan University. My passion lies in solving complex problems through code. I am deeply interested in the synergy between frontend design and backend logic.</p>
             <br>
             <p><strong>Education:</strong> BCA (2025 - Present) | Everest College, TU</p>
@@ -86,42 +86,40 @@
             <div class="card">
                 <h3>Library System</h3>
                 <p>Java application using ArrayLists and OOP principles to manage book issues.</p>
-                <a href="https://github.com/karunbaral40/java-some-project-simple-question/blob/master/EasyProject/src/OnlineLibrary.java" target="_blank" style="color:var(--main-color); text-decoration:none; font-size:14px;">View on GitHub</a>
+                <a href="https://github.com/karunbaral40/java-some-project-simple-question/blob/master/EasyProject/src/OnlineLibrary.java" target="_blank" class="project-link">View on GitHub</a>
             </div>
             <div class="card">
                 <h3>Guess The Number</h3>
                 <p>A logic game built with Java focusing on control flow and randomizers.</p>
-                <a href="https://github.com/karunbaral40/java-some-project-simple-question/blob/master/EasyProject/src/GussTheNumbers.java" target="_blank" style="color:var(--main-color); text-decoration:none; font-size:14px;">View on GitHub</a>
+                <a href="https://github.com/karunbaral40/java-some-project-simple-question/blob/master/EasyProject/src/GussTheNumbers.java" target="_blank" class="project-link">View on GitHub</a>
             </div>
             <div class="card">
                 <h3>Grade Checker</h3>
                 <p>Academic project for automated grade calculation using conditional logic.</p>
-                <a href="https://github.com/karunbaral40/java-some-project-simple-question/blob/master/EasyProject/src/GussTheNumbers.java" target="_blank" style="color:var(--main-color); text-decoration:none; font-size:14px;">View on GitHub</a>
+                <a href="https://github.com/karunbaral40/java-some-project-simple-question/blob/master/EasyProject/src/GussTheNumbers.java" target="_blank" class="project-link">View on GitHub</a>
             </div>
         </div>
     </section>
 
     <section id="contact" class="reveal">
         <h2 class="section-title">Contact <span>Me</span></h2>
-        <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center;">
+        <div class="card contact-card">
             <p>Email: karunbaral40@gmail.com</p>
             <p>LinkedIn: linkedin.com/in/karunbaral</p>
             <br>
             <form id="contactForm">
-                <input type="text" placeholder="Name" required style="width:100%; padding:10px; margin-bottom:10px; background:#0f172a; border:1px solid #334155; color:white; border-radius:5px;">
-                <textarea placeholder="Message" required style="width:100%; padding:10px; height:100px; background:#0f172a; border:1px solid #334155; color:white; border-radius:5px;"></textarea>
-                <button type="submit" class="btn primary" style="width:100%; margin-top:10px; border:none; cursor:pointer; width:100%;">Send Message</button>
+                <input type="text" placeholder="Name" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit" class="btn primary">Send Message</button>
             </form>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 40px; color: var(--gray-text); font-size: 14px;">
+    <footer>
         &copy; 2025 Karun Baral. All rights reserved.
     </footer>
 
-    <script src="script.js">
-
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>

@@ -62,12 +62,15 @@ section { min-height: 100vh; padding: 120px 10% 60px; }
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
+    width: max-content; /* Add this: keeps the box tight to the text */
     animation: typing 3s steps(30) infinite alternate, blink 0.5s step-end infinite;
 }
 
-@keyframes typing { from { width: 0 } to { width: 100% } }
-@keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--main-color) } }
 
+@keyframes typing {
+    from { width: 0 }
+    to { width: 47% }
+}
 .img-box {
     width: 350px; height: 350px;
     max-width: 80vw;

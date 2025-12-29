@@ -84,23 +84,44 @@ section { min-height: 100vh; padding: 120px 10% 60px; }
     animation: typing 3.5s steps(30) infinite alternate, blink 0.6s step-end infinite;
 }
 
-@keyframes typing { from { width: 0 } to { width: 78% } }
+@keyframes typing { from { width: 0 } to { width: 65% } }
 @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--main-color) } }
-
+/* --- 1. Static Blob Shape --- */
 .img-box {
-    width: 380px; height: 380px;
+    width: 380px;
+    height: 380px;
+    /* This exact value creates the shape from your screenshot */
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     border: 4px solid var(--main-color);
     overflow: hidden;
-    box-shadow: 0 0 30px var(--accent-glow);
-    animation: blobAnim 8s ease-in-out infinite;
-}
-.img-box img { width: 100%; height: 100%; object-fit: cover; }
 
-@keyframes blobAnim {
-    0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-    50% { border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+    /* Initial subtle glow */
+    box-shadow: 0 0 15px var(--accent-glow);
+
+    /* Smooth transition for hover effects */
+    transition: all 0.4s ease-in-out;
 }
+
+/* --- 2. Hover Effect --- */
+.img-box:hover {
+    /* Slight lift and scale */
+    transform: scale(1.03) translateY(-5px);
+
+    /* Stronger neon glow on hover */
+    box-shadow: 0 0 30px var(--main-color),
+                0 0 50px var(--accent-glow);
+
+    /* Optional: Brightens the border */
+    border-color: #fff;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* You can safely delete the @keyframes blobAnim block entirely */
 
 /* --- 5. ABOUT SECTION --- */
 .about-card { background: var(--card-bg); max-width: 900px; margin: 0 auto; padding: 40px; text-align: center; }

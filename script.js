@@ -20,12 +20,23 @@ const menuBtn = document.getElementById('mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 
 if (menuBtn) {
-    menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+
         // Simple animation for the hamburger menu
-        menuBtn.classList.toggle('open');
-    });
-}
+      menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+};
+document.addEventListener('click', (e) => {
+    if (
+        navLinks.classList.contains('active') &&
+        !navLinks.contains(e.target) &&
+        !menuBtn.contains(e.target)
+    ) {
+        navLinks.classList.remove('active');
+    }
+});
+
+
 
 // 3. Close mobile menu when a link is clicked
 document.querySelectorAll('.nav-links a').forEach(link => {
@@ -55,3 +66,24 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+let startX = 0;
+let endX = 0;
+
+// Detect touch start
+navLinks.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+});
+
+// Detect touch move
+navLinks.addEventListener("touchmove", (e) => {
+    endX = e.touches[0].clientX;
+});
+
+// Detect touch end
+navLinks.addEventListener("touchend", () => {
+    // Swipe right → left (close menu)
+    if (startX - endX > 50) {
+        navLinks.classList.remove("active");
+    }
+});
+

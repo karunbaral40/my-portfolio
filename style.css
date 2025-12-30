@@ -214,23 +214,43 @@ section {
 }
 
 /* 2. MOBILE VIEW (Automatic Centering for Small Screens) */
+
+/* 2. MOBILE VIEW (Focus on Spacing/Gaps) */
 @media (max-width: 992px) {
     .hero {
-        flex-direction: column-reverse; /* Image moves to top */
+        flex-direction: column-reverse; /* Keeps image above the text */
         text-align: center;
         justify-content: center;
+        gap: 60px; /* GAP: Large space between your photo and the text block */
+        padding-top: 100px;
     }
 
     .hero-content {
-        align-items: center; /* Centers everything */
+        align-items: center;
+    }
+
+    .hero-content p {
+        margin: 30px 0 50px; /* GAP: Extra space between the paragraph and buttons */
+        max-width: 100%;
     }
 
     .typewriter-container {
-        justify-content: center; /* Centers the typing effect */
+        justify-content: center;
+        margin-bottom: 10px;
     }
 
-    .typewriter {
-        margin: 0 auto;
+    /* FIXING THE BUTTON GAP */
+    .cta-btns {
+        display: flex;
+        flex-direction: column; /* Stacks buttons vertically */
+        gap: 20px; /* GAP: Space between the 'View Projects' and 'Contact Me' buttons */
+        width: 100%;
+        align-items: center;
+    }
+
+    .btn {
+        width: 80%; /* Makes buttons a consistent, readable size on mobile */
+        justify-content: center;
     }
 }
 

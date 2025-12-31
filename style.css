@@ -64,15 +64,33 @@ nav {
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: var(--gray-text);
-    font-weight: 500;
-    transition: 0.3s;
+    padding: 8px 20px;
+    border-radius: 15px;
+    border: 2px dotted transparent; /* Hidden dotted line */
+    transition: all 0.3s ease;
+    color: var(--text-color);
 }
 
 .nav-links a:hover,
 .nav-links a.active {
+    border-color: var(--main-color); /* Shows the dots */
+    background: rgba(34, 211, 238, 0.1); /* Subtle blue glow inside */
     color: var(--main-color);
+}
+@media (max-width: 992px) {
+    .contact-info {
+        gap: 15px; /* Adds space between the dotted buttons on mobile */
+    }
+
+    .info-card.interactive {
+        width: 100%; /* Makes buttons full width on small screens */
+        justify-content: flex-start;
+    }
+
+    .info-card.interactive:active {
+        border-style: dotted; /* Keeps the dotted look when touched */
+        border-color: var(--main-color);
+    }
 }
 
 /* Hamburger menu (mobile) */

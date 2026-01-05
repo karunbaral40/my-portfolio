@@ -44,7 +44,7 @@ nav {
     z-index: 1000;
 }
 
-/* Logo */
+
 .nav-logo {
     height: 50px;
     cursor: pointer;
@@ -55,8 +55,6 @@ nav {
     transform: scale(1.1);
     filter: drop-shadow(0 0 8px var(--main-color));
 }
-
-/* Desktop navigation links */
 .nav-links {
     list-style: none;
     display: flex;
@@ -66,29 +64,29 @@ nav {
 .nav-links a {
     padding: 8px 20px;
     border-radius: 15px;
-    border: 2px dotted transparent; /* Hidden dotted line */
+    border: 2px dotted transparent;
     transition: all 0.3s ease;
     color: var(--text-color);
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    border-color: var(--main-color); /* Shows the dots */
-    background: rgba(34, 211, 238, 0.1); /* Subtle blue glow inside */
+    border-color: var(--main-color);
+    background: rgba(34, 211, 238, 0.1);
     color: var(--main-color);
 }
 @media (max-width: 992px) {
     .contact-info {
-        gap: 15px; /* Adds space between the dotted buttons on mobile */
+        gap: 15px;
     }
 
     .info-card.interactive {
-        width: 100%; /* Makes buttons full width on small screens */
+        width: 100%;
         justify-content: flex-start;
     }
 
     .info-card.interactive:active {
-        border-style: dotted; /* Keeps the dotted look when touched */
+        border-style: dotted;
         border-color: var(--main-color);
     }
 }

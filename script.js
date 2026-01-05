@@ -1,4 +1,4 @@
-// 1. Intersection Observer for Scroll Animations
+
 const observerOptions = {
     threshold: 0.15
 };
@@ -15,13 +15,11 @@ document.querySelectorAll('.reveal').forEach(section => {
     observer.observe(section);
 });
 
-// 2. Mobile Menu Toggle
 const menuBtn = document.getElementById('mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 
 if (menuBtn) {
 
-        // Simple animation for the hamburger menu
       menuBtn.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
@@ -37,15 +35,12 @@ document.addEventListener('click', (e) => {
 });
 
 
-
-// 3. Close mobile menu when a link is clicked
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
     });
 });
 
-// 4. Highlight Active Nav Link on Scroll
 window.addEventListener('scroll', () => {
     let current = "";
     const sections = document.querySelectorAll('section');
@@ -69,19 +64,16 @@ window.addEventListener('scroll', () => {
 let startX = 0;
 let endX = 0;
 
-// Detect touch start
 navLinks.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
 });
 
-// Detect touch move
+
 navLinks.addEventListener("touchmove", (e) => {
     endX = e.touches[0].clientX;
 });
 
-// Detect touch end
 navLinks.addEventListener("touchend", () => {
-    // Swipe right → left (close menu)
     if (startX - endX > 50) {
         navLinks.classList.remove("active");
     }

@@ -214,7 +214,7 @@ section {
 .typewriter-container {
     display: flex;
     justify-content: flex-start; /* Typing starts from left */
-    width: 100%;
+    width: 63%;
     height: 40px;
 }
 
